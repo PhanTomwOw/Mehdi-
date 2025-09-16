@@ -1,0 +1,41 @@
+
+import React from 'react';
+import type { View } from '../App';
+
+interface HeaderProps {
+    setCurrentView: (view: View) => void;
+}
+
+const Header: React.FC<HeaderProps> = ({ setCurrentView }) => {
+  return (
+    <header className="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+        <div 
+          className="text-2xl font-bold text-gray-800 cursor-pointer flex items-center gap-2"
+          onClick={() => setCurrentView({ name: 'list' })}
+        >
+           <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-emerald-500" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v1.069l4.981 2.49a1 1 0 01.019 1.74l-4.02 2.01a1 1 0 01-1.01-.035l-4-3a1 1 0 01-.02-1.74L11 2.131V2a1 1 0 01.3-.954zM10 11.25a1 1 0 011-1h.09a1 1 0 01.98.745l.24 1.2a1 1 0 01-.38 1.05l-1.95 1.463a1 1 0 01-1.23 0l-1.95-1.463a1 1 0 01-.38-1.05l.24-1.2A1 1 0 019.91 10.25H10zm-3.09 4.34a1 1 0 01.44-.257l.03-.01 3.51-1.755a1 1 0 011.03 0l3.51 1.755.03.01a1 1 0 01.44.257 1 1 0 01.21.902l-.54 2.7a1 1 0 01-.94.807H6.94a1 1 0 01-.94-.807l-.54-2.7a1 1 0 01.21-.902z" clipRule="evenodd" />
+            </svg>
+          Tabriz SportZone
+        </div>
+        <nav className="flex items-center space-x-6">
+          <button 
+            onClick={() => setCurrentView({ name: 'list' })}
+            className="text-gray-600 hover:text-emerald-600 transition-colors duration-300 font-medium"
+          >
+            Complexes
+          </button>
+          <button 
+            onClick={() => setCurrentView({ name: 'teambuilder' })}
+            className="bg-emerald-500 text-white px-5 py-2 rounded-full hover:bg-emerald-600 transition-all duration-300 shadow-sm hover:shadow-md transform hover:-translate-y-0.5"
+          >
+            Find Teammates
+          </button>
+        </nav>
+      </div>
+    </header>
+  );
+};
+
+export default Header;
